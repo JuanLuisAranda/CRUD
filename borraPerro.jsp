@@ -7,6 +7,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Borra perro</title>
   </head>
   <body>
     <%
@@ -14,11 +15,15 @@
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/perrera","root", "");
       Statement s = conexion.createStatement();
 
-      s.execute ("DELETE FROM Mascota WHERE CodMascota=" + request.getParameter("CodMascota"));
-      
-      s.close();
+      String borrado = "DELETE FROM mascota WHERE CodMascota = ";
+      borrado += request.getParameter("CodMascota");
+      out.print(borrado);
+      s.execute(borrado);
+      conexion.close();
     %>	
-    <script>document.location = "index.jsp"</script> 
+    <script>
+      //Redirecciona a la página principal
+      location.replace("index.jsp");</script>
   </body>
 </html>
 
