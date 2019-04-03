@@ -17,39 +17,86 @@
         <h2 class="text-center">¡Deja en buenas manos a tus mascostas en vacaciones!</h2>
         <%
           request.setCharacterEncoding("UTF-8");
-          
+
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/perrera", "root", "");
           Statement s = conexion.createStatement();
-          
-          
-          
+
         %>
-        
+
         <table class="table">
             <tr><th>CodigoMascota</th><th>Nombre</th><th>Celda</th><th>Sexo</th><th>Raza</th><th></th></tr>
-            
-            <%
-              ResultSet listado = s.executeQuery("SELECT * FROM mascota INNER JOIN raza ON mascota.CodRaza=raza.CodRaza");
-              while (listado.next()) {
-            %>
-             <tr>
-                <td><%= listado.getString("CodMascota")%></td>
-                <td><%= listado.getString("NomMascota")%></td>
-                <td><%= listado.getString("NumCelda")%></td>
-                <td><%= listado.getString("Sexo")%></td>
-                <td><%= listado.getString("NomRaza")%></td>
-                <td>
-                    <a class="btn btn-danger" href="borraPerro.jsp?CodMascota=<%= listado.getString("CodMascota")%>" role="button"><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-            <%
-              }
-              conexion.close();
-            %>
+
+
+
+            <form action="insertaPerro.jsp" method="GET"
+                  <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="NomMascota">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="Celda">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="Sexo">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+
+                            <select name="CodRaza">
+
+                                <%ResultSet listadoRaza = s.executeQuery("SELECT * FROM raza ");
+                                  while (listadoRaza.next()) {
+                                %>
+
+                                <option value="<%=listadoRaza.getString("CodRaza")%>"><%=listadoRaza.getString("NomRaza")%>
+                                </option>
+                                <%
+                             }
+                                %>
+                            </select>
+
+                        </div>
+                    </td>
+                    <td><button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i></button></td>
+                </tr>
+
+
+
+                <%
+                  ResultSet listado = s.executeQuery("SELECT * FROM mascota INNER JOIN raza ON mascota.CodRaza=raza.CodRaza");
+                  while (listado.next()) {
+               %>
+                <tr>
+                    <td><%= listado.getString("CodMascota")%></td>
+                    <td><%= listado.getString("NomMascota")%></td>
+                    <td><%= listado.getString("NumCelda")%></td>
+                    <td><%= listado.getString("Sexo")%></td>
+                    <td><%= listado.getString("NomRaza")%></td>
+                    <td>
+                         <a
+                        class="btn btn-warning"
+                        href="modificaPerro.jsp?CodMascota=<%= listado.getString("CodMascota")%>&NomMascota=<%= listado.getString("NomMascota")%>&NumCelda=<%= listado.getString("NumCelda")%>&Sexo=<%= listado.getString("Sexo")%>&CodRaza=<%= listado.getString("CodRaza")%>" role="button"><i class="fas fa-pencil-alt"></i></a>
+                        <a class="btn btn-danger" href="borraPerro.jsp?CodMascota=<%= listado.getString("CodMascota")%>" role="button"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                    
+                </tr>
+                <%
+                  }
+                  conexion.close();
+                %>
 
         </table>
-            
-            
+
+
     </body>
 </html>
