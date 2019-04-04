@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1 class="text-center">Perrera</h1>
-        <h2 class="text-center">¡Deja en buenas manos a tus mascostas en vacaciones!</h2>
+        <h2 class="text-center">¡Deja en buenas manos a tus mascotas en vacaciones!</h2>
         <%
           request.setCharacterEncoding("UTF-8");
 
