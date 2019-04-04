@@ -30,5 +30,8 @@
       s.execute(insercion);
       conexion.close();
     %>
+    <script>
+      //Redirecciona a la página principal
+      location.replace("index.jsp");</script>
     </body>
 </html>

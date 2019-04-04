@@ -18,11 +18,11 @@
       Statement s = conexion.createStatement();
       request.setCharacterEncoding("UTF-8");
       
-      String actualizacion = "UPDATE `Mascota` SET "
+      String actualizacion = "UPDATE Mascota SET "
                            + "NomMascota='" + request.getParameter("NomMascota")
                            + "', NumCelda=" + Integer.valueOf(request.getParameter("NumCelda"))
                            + ", Sexo='" + request.getParameter("Sexo")
-                           + ", CodRaza=" + Integer.valueOf(request.getParameter("CodRaza"))
+                           + "', CodRaza=" + Integer.valueOf(request.getParameter("CodRaza"))
                            + " WHERE CodMascota=" + Integer.valueOf(request.getParameter("CodMascota"));
       s.execute(actualizacion);
       out.println("<br><br>Perro actualizado correctamente.<br>");
