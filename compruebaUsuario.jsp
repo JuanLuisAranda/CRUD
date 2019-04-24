@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -16,26 +17,26 @@
     <body>
         <%
           request.setCharacterEncoding("UTF-8");
-          
+
           Class.forName("com.mysql.jdbc.Driver");
           Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/registro", "root", "");
           Statement s = conexion.createStatement();
         %>
         <%
-          
           request.setCharacterEncoding("UTF-8");
           String usuario = request.getParameter("NomUsuario");
           String contrasena = request.getParameter("Password");
-          
-          String consulta = "SELECT COUNT(*) AS comprueba FROM usuarios WHERE NomUsuario='"
-                      + request.getParameter("NomUsuario")
-                      + "' AND Password='"
-                      + request.getParameter("Password")
-                      + "'";
-          
-          
 
-          if (usuario.equals("juanlu") && contrasena.equals("1234")) {
+          String consulta = "SELECT COUNT(*) AS comprueba FROM usuario WHERE NomUsuario='"
+                  + request.getParameter("NomUsuario")
+                  + "' AND Password='"
+                  + request.getParameter("Password")
+                  + "'";
+
+          ResultSet coincidencias = s.executeQuery(consulta) ;
+          coincidencias.next();
+          
+          if(coincidencias.getString("comprueba").equals("1")) {
             session.setAttribute("usuario", usuario);
             response.sendRedirect("index.jsp");
           } else {
