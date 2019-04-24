@@ -9,10 +9,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="shortcut icon" href="imgs/favicon.ico">
         <script src="js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <title>Perrera - Página Principal</title>
+        <link rel="stylesheet" href="css/right.css">
     </head>
     <body>
+        <p class="right">
+            <%
+              if (session.getAttribute("usuario") != null) {
+                out.print("Usuario " + session.getAttribute("usuario"));
+                %>
+                <a class="btn" href="logout.jsp" role="button" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                
+                <%
+              } else {
+            %>
+            <a class="btn" href="inicio.jsp" role="button" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+            <a class="btn" href="signIn.jsp" role="button" title="Sign In">Sign In</a>
+            <%
+              }
+             %>
+        </p>
         <h1 class="text-center">Perrera</h1>
         <h2 class="text-center">¡Deja en buenas manos a tus mascotas en vacaciones!</h2>
         <%

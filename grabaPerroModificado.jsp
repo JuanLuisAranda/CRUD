@@ -8,6 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="estilos.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="imgs/favicon.ico">
     <title>Modificación Perruna</title>
     
   </head>
