@@ -29,10 +29,6 @@
 
                     </div>
                     <div class="col-4">
-                        <%=session.getAttribute("error") == null
-                                ? ""
-                                : session.getAttribute("error")%>
-                        <% session.removeAttribute("error");%>
                         <form action="insertaUsuario.jsp" method="POST">
 
                             <!-- Usuario -->
@@ -77,6 +73,13 @@
 
                                 </div>
                             </div>
+                            
+                            <div style="color: red;">
+                            <%=session.getAttribute("error") == null
+                                    ? ""
+                                    : session.getAttribute("error")%>
+                            <% session.removeAttribute("error");%>
+                            </div>
 
                         </form>
                     </div>
@@ -85,6 +88,7 @@
 
                     </div>
                 </div>
+          
             </div>
 
         </div>

@@ -32,6 +32,6 @@
     %>
     <script>
       //Redirecciona a la página principal
-      location.replace("index.jsp");</script>
+      location.replace("listado.jsp");</script>
     </body>
 </html>

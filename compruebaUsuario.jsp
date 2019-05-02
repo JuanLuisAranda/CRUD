@@ -38,7 +38,7 @@
           
           if(coincidencias.getString("comprueba").equals("1")) {
             session.setAttribute("usuario", usuario);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("listadoAdmin.jsp");
           } else {
         %>
         <p>Nombre de usuario o contraseña incorrecto.</p>

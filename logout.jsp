@@ -1,4 +1,4 @@
 <%
   session.removeAttribute("usuario");
-  response.sendRedirect("index.jsp");
+  response.sendRedirect("listado.jsp");
   %>

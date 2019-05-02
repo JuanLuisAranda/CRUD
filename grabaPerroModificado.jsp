@@ -31,7 +31,7 @@
       conexion.close();
     %>
     <br>
-        <form method="get" action="index.jsp">
+        <form method="get" action="listado.jsp">
             <button type="submit" class="inicio">Página principal</button>
         </form>
 

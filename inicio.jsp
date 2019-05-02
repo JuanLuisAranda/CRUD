@@ -71,6 +71,12 @@
 
                     </div>
                 </div>
+                <div class="text-center">
+                  ¿Aún no te has registrado?
+                </div>
+                <div class="text-center">
+                    <a href="signIn.jsp" >¡Regístrate!</a>
+                </div>
             </div>
 
         </div>

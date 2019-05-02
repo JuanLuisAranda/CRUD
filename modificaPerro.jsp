@@ -65,7 +65,7 @@
                 &nbsp;&nbsp;
                 <button style="float: right;" class="eliminar" type="submit" >Aceptar</button><br><br>
             </form>
-            <form method="get" action="index.jsp">
+            <form method="get" action="listado.jsp">
                 <button style="float: right;" type="submit" class="inicio">Cancelar</button>
             </form><br>
 
